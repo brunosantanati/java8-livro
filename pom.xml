@@ -20,7 +20,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <executable>${JAVA_HOME_8}/bin/javac</executable>
+                    <!--<executable>${JAVA_HOME_8}/bin/javac</executable>-->
+                    <executable>C:\Program Files\Java\jdk1.8.0_251\bin\javac</executable>
                     <verbose>true</verbose>
                     <fork>true</fork>
                     <compilerVersion>1.8</compilerVersion>

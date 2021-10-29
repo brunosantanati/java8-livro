@@ -14,19 +14,19 @@ class Capitulo9 {
 	public static void main (String... args) throws Exception 	{
 
 		LongStream lines = 
-			Files.list(Paths.get("./br/com/casadocodigo/java8"))
+			Files.list(Paths.get("C:\\Users\\55119\\IdeaProjects\\java8-livro\\src\\main\\java\\br\\com\\casadocodigo\\java8"))
 				.filter(p -> p.toString().endsWith(".java"))
 				.mapToLong(p -> lines(p).count());
 
 		List<Long> lines2 = 
-			Files.list(Paths.get("./br/com/casadocodigo/java8"))
+			Files.list(Paths.get("C:\\Users\\55119\\IdeaProjects\\java8-livro\\src\\main\\java\\br\\com\\casadocodigo\\java8"))
 				.filter(p -> p.toString().endsWith(".java"))
 				.map(p -> lines(p).count())
 				.collect(Collectors.toList());	
 
 		{
 			Map<Path, Long> linesPerFile =  new HashMap<>();
-			Files.list(Paths.get("./br/com/casadocodigo/java8"))
+			Files.list(Paths.get("C:\\Users\\55119\\IdeaProjects\\java8-livro\\src\\main\\java\\br\\com\\casadocodigo\\java8"))
 				.filter(p -> p.toString().endsWith(".java"))
 				.forEach(p -> 
 					linesPerFile.put(p, lines(p).count()));
@@ -34,7 +34,7 @@ class Capitulo9 {
 				
 		}
 		Map<Path, Long> linesPerFile = 
-			Files.list(Paths.get("./br/com/casadocodigo/java8"))
+			Files.list(Paths.get("C:\\Users\\55119\\IdeaProjects\\java8-livro\\src\\main\\java\\br\\com\\casadocodigo\\java8"))
 				.filter(p -> p.toString().endsWith(".java"))
 				.collect(Collectors.toMap(
 						Function.identity(), 
@@ -45,7 +45,7 @@ class Capitulo9 {
 
 
 		Map<Path, List<String>> content = 
-			Files.list(Paths.get("./br/com/casadocodigo/java8"))
+			Files.list(Paths.get("C:\\Users\\55119\\IdeaProjects\\java8-livro\\src\\main\\java\\br\\com\\casadocodigo\\java8"))
 				.filter(p -> p.toString().endsWith(".java"))
 				.collect(Collectors.toMap(
 						p -> p, 
@@ -59,8 +59,10 @@ class Capitulo9 {
 		Usuario user3 = new Usuario("Guilherme Silveira", 90);
 		Usuario user4 = new Usuario("Sergio Lopes", 120);
 		Usuario user5 = new Usuario("Adriano Almeida", 100);
+		Usuario user6 = new Usuario("Brunão", 100);
+		Usuario user7 = new Usuario("Creed", 100);
 
-		List<Usuario> usuarios = Arrays.asList(user1, user2, user3, user4, user5);
+		List<Usuario> usuarios = Arrays.asList(user1, user2, user3, user4, user5, user6, user7);
 
 		Map<String, Usuario> nameToUser = usuarios
 			.stream()
@@ -96,7 +98,7 @@ class Capitulo9 {
 			.stream()
 			.collect(Collectors.groupingBy(Usuario::getPontos));
 
-		System.out.println(pontuacao);
+		System.out.println("pontuacao: " + pontuacao);
 
 		Map<Boolean, List<Usuario>> moderadores = usuarios
 		 	.stream()
